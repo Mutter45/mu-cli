@@ -1,6 +1,10 @@
 const { Transform } = require('stream');
 const { Console } = require('console');
 const chalk = require('chalk');
+/**
+ *
+ * @param { Array } input 输出表格数组数据
+ */
 function ConsoleTable(input) {
 	const ts = new Transform({
 		transform(chunk, enc, cb) {
@@ -21,6 +25,12 @@ function ConsoleTable(input) {
 	}
 	console.log(chalk.cyan(result));
 }
+/**
+ *
+ * @param { Object } data 对象
+ * @param  {...any} arg 需要过滤属性
+ * @returns 新对象
+ */
 function filterObjParams(data, ...arg) {
 	let res = { ...data };
 	for (const key of arg) {
@@ -28,7 +38,25 @@ function filterObjParams(data, ...arg) {
 	}
 	return res;
 }
+/**
+ *
+ * @param {*} err 错误收集
+ */
+function errorFn(err) {
+	console.log(chalk.red(err.message));
+}
+/**
+ * @description 异步函数错误收集统一处理
+ * @param {*} fn 异步函数
+ * @returns
+ */
+function catchAsync(fn) {
+	return (...arg) => {
+		fn(...arg).catch(errorFn);
+	};
+}
 module.exports = {
 	ConsoleTable,
 	filterObjParams,
+	catchAsync,
 };

@@ -5,7 +5,6 @@ const https = require('node:https');
  * @returns Promise 获取该用户所有公开仓库信息
  */
 const getGitReposList = (userName) => {
-	// {?type,page,per_page,sort}
 	return new Promise((resolve, reject) => {
 		https.get(
 			`https://api.github.com/users/${userName}/repos`,

@@ -43,7 +43,11 @@ function filterObjParams(data, ...arg) {
  * @param {*} err 错误收集
  */
 function errorFn(err) {
-	console.log(chalk.red(err.message));
+	if (err.isOperational) {
+		console.log(chalk.red(err.message));
+	} else {
+		console.log(chalk.red(err));
+	}
 }
 /**
  * @description 异步函数错误收集统一处理

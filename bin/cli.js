@@ -12,7 +12,7 @@ const package = require('../package.json');
 const info = require('./info.json');
 // const { execSync } = require('child_process');
 const loading = ora({
-	color: 'cyan',
+	   color: 'cyan',
 });
 /**
  * list 方法处理

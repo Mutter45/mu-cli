@@ -11,7 +11,9 @@ function ConsoleTable(input) {
 			cb(null, chunk);
 		},
 	});
-	const logger = new Console({ stdout: ts });
+	const logger = new Console({
+		stdout: ts,
+	});
 	logger.table(input);
 	const table = (ts.read() || '').toString();
 	let result = '';
@@ -32,7 +34,9 @@ function ConsoleTable(input) {
  * @returns 新对象
  */
 function filterObjParams(data, ...arg) {
-	let res = { ...data };
+	let res = {
+		...data,
+	};
 	for (const key of arg) {
 		delete res[key];
 	}

@@ -1,16 +1,16 @@
 {
-	"name": "mu-cli",
-	"version": "0.0.1",
-	"description": "",
-	"main": "index.js",
+	"name": "@mutterzz/mu-cli",
+	"version": "0.0.2",
+	"description": "A personal template management tool",
 	"bin": {
 		"mu-cli": "./bin/cli.js"
 	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "",
+	"scripts": {},
+	"keywords": [
+		"cli",
+		"template management"
+	],
+	"author": "mutterzz",
 	"license": "ISC",
 	"dependencies": {
 		"chalk": "^4.1.2",
@@ -19,5 +19,13 @@
 		"fs-extra": "^11.1.1",
 		"inquirer": "^8.2.5",
 		"ora": "^5.4.1"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Mutter45/mu-cli.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Mutter45/mu-cli/issues"
+	},
+	"homepage": "https://github.com/Mutter45/mu-cli#readme"
 }

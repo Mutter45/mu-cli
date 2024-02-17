@@ -13,7 +13,7 @@ const package = require('../package.json');
 const info = require('./info.json');
 // const { execSync } = require('child_process');
 const loading = ora({
-	   color: 'cyan',
+	color: 'cyan',
 });
 
 /**
@@ -49,11 +49,13 @@ const filterTypeList = (type, name) => {
 
 // 查看用户，模板列表 回调函数
 const commaSeparatedList = async (value) => {
+	console.log(value, '-----------------');
 	if (!value.list) return;
 	const typeObj = {
 		t: '模板',
 		u: '用户',
 	};
+	// 参数可能不存在需要处理
 	const type = value.list === true ? 't' : value.list;
 	loading.start(`正在获取${typeObj[type]}列表...`);
 	const list = await filterTypeList(type, info.DEFAULTEMPLATE);
